@@ -40,7 +40,9 @@ Selain komunikasi dasar publisher dan subscriber, sistem juga mengimplementasika
 
 # 🏗️ Arsitektur Sistem
 
-![System Architecture](system_architecture.jpg)
+<p align="center">
+  <img src="Arsitektur%20SmartDoor.jpg" width="1000">
+</p>
 
 ## Alur Komunikasi
 
