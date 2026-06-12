@@ -277,8 +277,8 @@ Folder `screenshots/` berisi hasil pengujian untuk setiap skenario implementasi 
 
 # 👩‍💻 Author
 
-**Aqilah Akma**  
-NIM: 235150301111017
+Nama : **Aqilah Akma**  
+NIM  : **235150301111017**
 
 Teknik Komputer  
 Fakultas Ilmu Komputer  
