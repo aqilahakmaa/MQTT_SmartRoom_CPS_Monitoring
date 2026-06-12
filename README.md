@@ -40,7 +40,7 @@ Selain komunikasi dasar publisher dan subscriber, sistem juga mengimplementasika
 
 # 🏗️ Arsitektur Sistem
 
-![System Architecture](docs/.gitkeep)
+![System Architecture](system_architecture.jpg)
 
 ## Alur Komunikasi
 
