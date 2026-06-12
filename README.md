@@ -46,10 +46,8 @@ Selain komunikasi dasar, sistem juga mengimplementasikan:
 
 # 🏗️ System Architecture
 
-Tambahkan gambar:
+<img width="4460" height="1404" alt="image" src="https://github.com/user-attachments/assets/506f0527-652c-4405-bfa5-9a475d7da2a8" />
 
-```text
-docs/system_architecture.png
 ```
 
 ## Communication Flow
