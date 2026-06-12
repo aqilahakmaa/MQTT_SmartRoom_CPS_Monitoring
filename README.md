@@ -1,149 +1,129 @@
-# 🏡 Smart Room Monitoring with MQTT Protocol
+# 🏡 Smart Room Monitoring System
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![MQTT](https://img.shields.io/badge/Protocol-MQTT-green)
 ![Mosquitto](https://img.shields.io/badge/Broker-Mosquitto-orange)
 ![paho-mqtt](https://img.shields.io/badge/Library-paho--mqtt-red)
+![CPS](https://img.shields.io/badge/Course-Cyber%20Physical%20System-purple)
 
-Implementasi komunikasi MQTT menggunakan Python dan Mosquitto Broker untuk mensimulasikan sistem pemantauan kondisi ruangan secara real-time pada lingkungan Cyber Physical System (CPS).
-
----
-
-# 📖 Project Overview
-
-Proyek ini bertujuan untuk mempelajari mekanisme komunikasi berbasis MQTT dengan menerapkan pola publish-subscribe pada studi kasus Smart Room Monitoring.
-
-Pada sistem ini, publisher berperan sebagai sensor virtual yang menghasilkan data:
-
-* 🌡️ Temperature
-* 💧 Humidity
-* 💡 Light Intensity
-
-Data dikirim ke Mosquitto Broker menggunakan beberapa topic MQTT, kemudian diterima oleh subscriber sebagai aplikasi monitoring.
-
-Selain komunikasi dasar, sistem juga mengimplementasikan:
-
-* QoS Level 0
-* QoS Level 1
-* QoS Level 2
-* Multiple Topic Communication
-* Wildcard Topic (+)
-* Wildcard Topic (#)
+Implementasi komunikasi MQTT menggunakan Python dan Mosquitto Broker untuk sistem Smart Room Monitoring berbasis Cyber Physical System (CPS).
 
 ---
 
-# 🎯 Learning Objectives
+# 📖 Deskripsi Singkat
 
-* Memahami konsep MQTT pada Cyber Physical System
-* Mengimplementasikan Publisher dan Subscriber menggunakan Python
-* Menggunakan Mosquitto sebagai MQTT Broker
-* Menguji pengaruh QoS terhadap pengiriman pesan
-* Menggunakan struktur topic bertingkat
-* Menerapkan wildcard MQTT (+ dan #)
-* Menganalisis distribusi pesan pada berbagai skenario komunikasi
+Project ini merupakan implementasi protokol MQTT menggunakan Python dan Mosquitto Broker pada studi kasus Smart Room Monitoring.
+
+Sistem mensimulasikan sebuah ruangan pintar menggunakan beberapa sensor virtual yang menghasilkan data secara real-time. Data dikirim melalui MQTT Broker menggunakan pola komunikasi publish-subscribe dan diterima oleh aplikasi monitoring.
+
+Parameter yang dimonitor meliputi:
+
+- 🌡️ Temperature Sensor
+- 👥 People Count Sensor
+- 🚪 Door Status Sensor
+
+Selain komunikasi dasar publisher dan subscriber, sistem juga mengimplementasikan berbagai fitur MQTT seperti Quality of Service (QoS), Multiple Topic, Wildcard (+), dan Wildcard (#).
 
 ---
 
-# 🏗️ System Architecture
+# 🎯 Tujuan Proyek
 
-<img width="4460" height="1404" alt="image" src="https://github.com/user-attachments/assets/506f0527-652c-4405-bfa5-9a475d7da2a8" />
+- Memahami konsep MQTT pada Cyber Physical System.
+- Mengimplementasikan Publisher dan Subscriber menggunakan Python.
+- Menggunakan Mosquitto sebagai MQTT Broker.
+- Menguji QoS Level 0, QoS Level 1, dan QoS Level 2.
+- Menggunakan struktur topic MQTT bertingkat.
+- Mengimplementasikan wildcard topic (+) dan (#).
+- Menganalisis proses distribusi pesan MQTT.
 
+---
+
+# 🏗️ Arsitektur Sistem
+
+![System Architecture](docs/.gitkeep)
+
+## Alur Komunikasi
+
+1. Temperature Sensor, People Count Sensor, dan Door Status Sensor menghasilkan data virtual.
+2. Publisher Python mengumpulkan data dari sensor virtual.
+3. Data dipublikasikan ke Mosquitto MQTT Broker menggunakan topic tertentu.
+4. Broker menerima dan mendistribusikan pesan kepada subscriber yang sesuai.
+5. Subscriber menerima data dari broker.
+6. Monitoring Dashboard menampilkan informasi ruangan secara real-time.
+
+---
+
+# 📡 Struktur Topic MQTT
+
+Topic yang digunakan:
+
+```text
+smartroom/room1/temperature
+smartroom/room1/people
+smartroom/room1/door
 ```
 
-## Communication Flow
+Wildcard Topic:
 
-1. Virtual Sensor menghasilkan data monitoring ruangan
-2. Publisher mengirimkan data ke Mosquitto Broker
-3. Broker menerima dan mengelola pesan berdasarkan topic
-4. Subscriber melakukan subscribe pada topic tertentu
-5. Broker mendistribusikan pesan yang sesuai
-6. Monitoring Application menampilkan data secara real-time
-
----
-
-# 📡 MQTT Topic Structure
-
-smartroom/room1/temperature
-
-smartroom/room1/humidity
-
-smartroom/room1/light
-
-smartroom/room1/qos
-
-## Wildcard Topics
-
+```text
 smartroom/+/temperature
-
 smartroom/#
+```
 
 ---
 
-# ⚙️ Technologies Used
+# ⚙️ Tech Stack
 
-| Component              | Technology        |
-| ---------------------- | ----------------- |
-| Programming Language   | Python 3          |
-| MQTT Library           | paho-mqtt         |
-| Message Broker         | Mosquitto         |
-| Communication Protocol | MQTT              |
-| Architecture           | Publish-Subscribe |
+| Komponen | Teknologi |
+|-----------|-----------|
+| Programming Language | Python 3 |
+| Protocol | MQTT |
+| Message Broker | Mosquitto Broker |
+| MQTT Library | paho-mqtt |
+| Communication Model | Publish-Subscribe |
 
 ---
 
-# 📂 Project Structure
+# 📁 Struktur Proyek
 
-mqtt-smartroom-aqilah/
-
-├── src/
-
-│ ├── scenario1_basic/
-
-│ ├── scenario2_qos/
-
-│ ├── scenario3_multitopic/
-
-│ ├── scenario4_wildcard_plus/
-
-│ └── scenario5_wildcard_hash/
-
+```text
+MQTT_SmartRoom_CPS_Monitoring/
 │
-
-├── docs/
-
-│ ├── system_architecture.png
-
-│ └── laporan.pdf
-
+├── code/
+│   ├── publisher_basic.py
+│   ├── subscriber_basic.py
+│   ├── publisher_qos.py
+│   ├── subscriber_qos.py
+│   ├── publisher_multitopic.py
+│   ├── subscriber_multitopic.py
+│   ├── publisher_wildcard_plus.py
+│   ├── subscriber_wildcard_plus.py
+│   ├── publisher_wildcard_hash.py
+│   └── subscriber_wildcard_hash.py
 │
-
 ├── screenshots/
-
-│ ├── scenario1/
-
-│ ├── scenario2/
-
-│ ├── scenario3/
-
-│ ├── scenario4/
-
-│ └── scenario5/
-
 │
-
+├── docs/
+│   └── system_architecture.png
+│
 ├── requirements.txt
-
+│
 └── README.md
+```
 
 ---
 
-# 🚀 Installation
+# 🚀 Quick Start
 
-## 1. Install Mosquitto Broker
+## 1️⃣ Install Mosquitto Broker
 
 ### Windows
 
-Download dan install Mosquitto Broker.
+Download:
+
+https://mosquitto.org/download/
+
+Install menggunakan konfigurasi default.
 
 ### Ubuntu / Debian
 
@@ -154,7 +134,7 @@ sudo systemctl start mosquitto
 
 ---
 
-## 2. Install Dependencies
+## 2️⃣ Install Dependency
 
 ```bash
 pip install paho-mqtt
@@ -168,13 +148,13 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Running Mosquitto Broker
+## 3️⃣ Jalankan Mosquitto Broker
 
 ```bash
 mosquitto -v
 ```
 
-Jika berhasil:
+Jika berhasil akan muncul:
 
 ```text
 Opening ipv4 listen socket on port 1883
@@ -183,95 +163,105 @@ Opening ipv6 listen socket on port 1883
 
 ---
 
-# 🧪 Test Scenarios
+# 🧪 Skenario Pengujian
 
-## Scenario 1 — Basic Publisher & Subscriber
-
-Subscriber:
+## Skenario 1 — Komunikasi Dasar Publisher-Subscriber
 
 ```bash
-python src/scenario1_basic/subscriber_basic.py
+python code/subscriber_basic.py
 ```
 
-Publisher:
-
 ```bash
-python src/scenario1_basic/publisher_basic.py
+python code/publisher_basic.py
 ```
 
 ---
 
-## Scenario 2 — Quality of Service (QoS)
+## Skenario 2 — Quality of Service (QoS)
 
 ```bash
-python src/scenario2_qos/subscriber_qos.py
+python code/subscriber_qos.py
 ```
 
 ```bash
-python src/scenario2_qos/publisher_qos.py
-```
-
----
-
-## Scenario 3 — Multiple Topics
-
-```bash
-python src/scenario3_multitopic/subscriber_multitopic.py
-```
-
-```bash
-python src/scenario3_multitopic/publisher_multitopic.py
+python code/publisher_qos.py
 ```
 
 ---
 
-## Scenario 4 — Wildcard (+)
+## Skenario 3 — Multiple Topic
 
 ```bash
-python src/scenario4_wildcard_plus/subscriber_plus.py
+python code/subscriber_multitopic.py
 ```
 
 ```bash
-python src/scenario4_wildcard_plus/publisher_plus.py
+python code/publisher_multitopic.py
 ```
 
 ---
 
-## Scenario 5 — Wildcard (#)
+## Skenario 4 — Wildcard (+)
 
 ```bash
-python src/scenario5_wildcard_hash/subscriber_hash.py
+python code/subscriber_wildcard_plus.py
 ```
 
 ```bash
-python src/scenario5_wildcard_hash/publisher_hash.py
+python code/publisher_wildcard_plus.py
 ```
 
-# 💡 Notes
+---
 
-* Jalankan Mosquitto Broker terlebih dahulu
-* Jalankan Subscriber sebelum Publisher
-* Gunakan terminal terpisah untuk setiap proses
-* Tekan Ctrl+C untuk menghentikan program
+## Skenario 5 — Wildcard (#)
+
+```bash
+python code/subscriber_wildcard_hash.py
+```
+
+```bash
+python code/publisher_wildcard_hash.py
+```
+
+---
+
+# 📸 Dokumentasi Pengujian
+
+Folder `screenshots/` berisi hasil pengujian untuk setiap skenario implementasi MQTT.
+
+- Basic Publisher-Subscriber
+- QoS 0, 1, dan 2
+- Multiple Topic
+- Wildcard (+)
+- Wildcard (#)
+
+---
+
+# 💡 Tips Menjalankan
+
+- Jalankan Mosquitto Broker terlebih dahulu.
+- Jalankan Subscriber sebelum Publisher.
+- Gunakan terminal yang berbeda untuk Broker, Subscriber, dan Publisher.
+- Tekan Ctrl + C untuk menghentikan program.
 
 ---
 
 # 🚨 Troubleshooting
 
-| Error               | Solution                       |
-| ------------------- | ------------------------------ |
-| mosquitto not found | Tambahkan Mosquitto ke PATH    |
-| Connection Refused  | Pastikan Broker berjalan       |
-| ModuleNotFoundError | Install paho-mqtt              |
-| No message received | Jalankan subscriber lebih dulu |
+| Error | Solusi |
+|---------|---------|
+| mosquitto not found | Tambahkan Mosquitto ke PATH |
+| Connection Refused | Pastikan Broker berjalan |
+| ModuleNotFoundError | Install paho-mqtt |
+| Subscriber tidak menerima pesan | Jalankan subscriber terlebih dahulu |
 
 ---
 
-# 📊 MQTT Features Implemented
+# 📊 Konsep MQTT yang Diimplementasikan
 
 ✅ Publish-Subscribe Pattern
 
-✅ QoS Level 0, 1, 2
+✅ QoS Level 0, 1, dan 2
 
 ✅ Multiple Topic Communication
 
@@ -285,12 +275,11 @@ python src/scenario5_wildcard_hash/publisher_hash.py
 
 # 👩‍💻 Author
 
-Aqilah Akma
-
+**Aqilah Akma**  
 NIM: 235150301111017
 
-Teknik Komputer
-
+Teknik Komputer  
+Fakultas Ilmu Komputer  
 Universitas Brawijaya
 
 ---
