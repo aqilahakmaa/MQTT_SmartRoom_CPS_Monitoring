@@ -86,7 +86,7 @@ smartroom/#
 
 ---
 
-# 📁 Struktur Proyek
+## 📁 Struktur Direktori
 
 ```text
 MQTT_SmartRoom_CPS_Monitoring/
@@ -103,16 +103,15 @@ MQTT_SmartRoom_CPS_Monitoring/
 │   ├── publisher_wildcard_hash.py
 │   └── subscriber_wildcard_hash.py
 │
-├── screenshots/
+├── screenshot/
+│   ├── skenario-1.png
+│   ├── skenario-2.png
+│   ├── skenario-3.png
+│   ├── skenario-4.png
+│   └── skenario-5.png
 │
-├── docs/
-│   └── system_architecture.png
-│
-├── requirements.txt
-│
+├── Laporan_SmartRoom_Monitoring.pdf
 └── README.md
-```
-
 ---
 
 # 🚀 Quick Start
