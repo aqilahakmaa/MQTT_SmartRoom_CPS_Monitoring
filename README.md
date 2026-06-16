@@ -103,15 +103,20 @@ MQTT_SmartRoom_CPS_Monitoring/
 │   ├── publisher_wildcard_hash.py
 │   └── subscriber_wildcard_hash.py
 │
-├── screenshot/
-│   ├── skenario-1.png
-│   ├── skenario-2.png
-│   ├── skenario-3.png
-│   ├── skenario-4.png
-│   └── skenario-5.png
+├── laporan_praktikum/
+│   └── Tugas Pemrograman Protokol MQTT_Aqilah Akma_235150301111017.pdf
 │
-├── Laporan_SmartRoom_Monitoring.pdf
+├── screenshots/
+│   ├── Skenario 1_implementasi Dasar MQTT (Basic Publisher & Subscriber).png
+│   ├── Skenario 2_Kualitas Layanan (Quality of Service - QoS).png
+│   ├── Skenario 3_Penggunaan Beberapa Topik (Multi Topic).png
+│   ├── Skenario 4_Penyaringan Topik Menggunakan Wildcard Plus.png
+│   └── Skenario 5_Pemantauan Global Menggunakan Wildcard Hash.png
+│
+├── Arsitektur SmartDoor.jpg
+├── requirements.txt
 └── README.md
+```
 ---
 
 # 🚀 Quick Start
